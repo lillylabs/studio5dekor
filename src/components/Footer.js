@@ -2,17 +2,19 @@ import React from "react";
 //import Link from "link";
 
 const Footer = ({ children }) => (
-  <footer className="footer has-text-centered">
-    {children}
-    <p>
-      <a href="https://www.facebook.com/Studio-5-Dekor-as-290884624375196/">
-        Studio 5 Dekor as på facebook
-      </a>
-    </p>
+  <footer className="footer">
+    <div className="container has-text-centered">
+      {children}
+      <p>
+        <a href="https://www.facebook.com/Studio-5-Dekor-as-290884624375196/">
+          Studio 5 Dekor på Facebook
+        </a>
+      </p>
 
-    <p>
-      <a href="https://studio5dekor.no">www.studio5dekor.no,</a>
-    </p>
+      <p>
+        <a href="https://studio5dekor.no">www.studio5dekor.no</a>
+      </p>
+    </div>
   </footer>
 );
 //<p>'Vi gjør andre ting også, se:'</p>

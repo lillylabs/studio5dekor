@@ -13,7 +13,7 @@ const productAndSkuToOrderItemDescription = (sku, attributes) => {
 
   return join(list, " / ");
 };
-
+console.log(productAndSkuToOrderItemDescription);
 const skuToTitle = sku => {
   const attributeValues = values(sku.attributes);
   return join(attributeValues, ", ");
