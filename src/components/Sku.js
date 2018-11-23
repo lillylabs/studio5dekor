@@ -68,8 +68,8 @@ const Sku = ({
 
   return (
     <article className="columns is-vertically-centered">
-      <div className="column is-4">
-        <figure className="image is-square">
+      <div className="column is-6">
+        <figure className="image is-4by3">
           {sku.image && <img alt="product" src={sku.image} />}
         </figure>
       </div>

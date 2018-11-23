@@ -26,6 +26,8 @@ exports.createPages = async ({ actions: { createPage } }) => {
     // Create a single product page as the frontpage
     const product = allProducts[0];
     const productSkus = filterProductSkus(product, allSkus);
+    console.log(product);
+    console.log("this is product on line 29 in gatsby-node 🦄 ");
 
     createPage({
       path: `/`,
