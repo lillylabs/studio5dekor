@@ -3,6 +3,13 @@ const proxy = require("http-proxy-middleware");
 module.exports = {
   siteMetadata: {
     lang: "no",
+    footerNav: [
+      {
+        label: "Studio 5 Dekor på Facebook",
+        path: "https://www.facebook.com/Studio-5-Dekor-as-290884624375196/"
+      }
+    ],
+
     locale: "no-bok",
     stripeKey: process.env.GATSBY_STRIPE_PUBLISHABLE_KEY,
     labels: {
@@ -53,3 +60,6 @@ module.exports = {
     }
   ]
 };
+//console.log(footerNav);
+//label: "www.studio5dekor.no",
+//path: "https://studio5dekor.no"

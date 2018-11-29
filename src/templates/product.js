@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import StripeSku from "../components/StripeSku";
 import StripeCheckout from "../components/StripeCheckout";
 import Sku from "../components/Sku";
+import Link from "gatsby";
 
 export default ({
   data: {
@@ -39,9 +40,22 @@ export default ({
         </StripeCheckout>
       </Main>
       <Footer>
-        {product.metadata.footer.split("\n\n").map((paragraph, key) => (
+        {product.metadata.footer.split("\n\n").map((paragraph, key, footerNav) => (
           <p key={key}>{paragraph}</p>
+
+          <p>
+            <Link key={key} className="nav-item" alt={footerNav.label} to={footerNav.path}>
+              {footerNav.path === "https://www.facebook.com/Studio-5-Dekor-as-290884624375196/"  (
+                footerNav.label
+              )}
+            </Link>
+          </p>
         ))}
+
+
+
+
+
       </Footer>
     </Layout>
   );
@@ -53,6 +67,10 @@ export const pageQuery = graphql`
       siteMetadata {
         locale
         lang
+        footerNav {
+          label
+          path
+        }
         stripeKey
         labels {
           checkout
@@ -64,3 +82,18 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+
+const Nav = ({ items }) => (
+  <nav className="nav">
+    {items.map((item, key) => (
+      <Link key={key} className="nav-item" alt={item.label} to={item.path}>
+        {item.path === '/' ? (
+          <FontAwesomeIcon icon={faLongArrowAltLeft} />
+        ) : (
+          item.label
+        )}
+      </Link>
+    ))}
+  </nav>
+)
