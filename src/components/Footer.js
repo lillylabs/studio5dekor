@@ -1,7 +1,7 @@
 import React from "react";
 //import Link from "link";
 
-const Footer = ({ children }, footerNav) => (
+const Footer = ({ children }) => (
   <footer className="footer">
     <div className="container has-text-centered">{children}</div>
   </footer>

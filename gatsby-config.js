@@ -5,8 +5,13 @@ module.exports = {
     lang: "no",
     footerNav: [
       {
-        label: "Studio 5 Dekor på Facebook",
+        //<Link to="/contact/">Contact</Link>
+        label: "Studio 5 Dekor på Facebook eller ",
         path: "https://www.facebook.com/Studio-5-Dekor-as-290884624375196/"
+      },
+      {
+        label: "Studio 5 Dekor",
+        path: "https://studio5dekor.no/"
       }
     ],
 

@@ -8,12 +8,11 @@ import Footer from "../components/Footer";
 import StripeSku from "../components/StripeSku";
 import StripeCheckout from "../components/StripeCheckout";
 import Sku from "../components/Sku";
-import Link from "gatsby";
-
+import { Link } from "gatsby";
 export default ({
   data: {
     site: {
-      siteMetadata: { locale, lang, stripeKey, labels }
+      siteMetadata: { locale, lang, footerNav, stripeKey, labels }
     }
   },
   pageContext: { product, productSkus }
@@ -40,22 +39,22 @@ export default ({
         </StripeCheckout>
       </Main>
       <Footer>
-        {product.metadata.footer.split("\n\n").map((paragraph, key, footerNav) => (
+        {product.metadata.footer.split("\n\n").map((paragraph, key) => (
           <p key={key}>{paragraph}</p>
-
-          <p>
-            <Link key={key} className="nav-item" alt={footerNav.label} to={footerNav.path}>
-              {footerNav.path === "https://www.facebook.com/Studio-5-Dekor-as-290884624375196/"  (
-                footerNav.label
-              )}
-            </Link>
-          </p>
         ))}
-
-
-
-
-
+        <div>
+          {footerNav.map((footerNav, key) => (
+            <Link
+              key={key}
+              //className="nav-item"
+              //alt={footerNav.label}
+              to={footerNav.path}
+            >
+              {footerNav.label}
+            </Link>
+            //<Link to="/contact/">Contact</Link>
+          ))}
+        </div>
       </Footer>
     </Layout>
   );
@@ -82,18 +81,25 @@ export const pageQuery = graphql`
     }
   }
 `;
+//console.log(footerNav);
 
+// <div>
+// const Nav = ({footerNav}) => (
+// {footerNav.map(key => (
+//   <Link
+//     key={key}
+//     className="nav-item"
+//     alt={footerNav.label}
+//     to={footerNav.path}
+//   >
+//     {footerNav.path ===
+//       "/"(
+//         //const lenke1 = footerNav.map(lenke => footerNav[0]); const lenke2 =
+//         //footerNav.map(lenke => footerNav[1]); )}
 
-const Nav = ({ items }) => (
-  <nav className="nav">
-    {items.map((item, key) => (
-      <Link key={key} className="nav-item" alt={item.label} to={item.path}>
-        {item.path === '/' ? (
-          <FontAwesomeIcon icon={faLongArrowAltLeft} />
-        ) : (
-          item.label
-        )}
-      </Link>
-    ))}
-  </nav>
-)
+//         footerNav.label
+//       )}
+//   </Link>
+// ))}
+// )
+// </div>
